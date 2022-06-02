@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/prokion"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +19,77 @@
             android:id="@+id/prokion_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="프로키온의 나침반"
             android:layout_marginTop="10sp"
+            android:text="프로키온의 나침반"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/userImg"
+            android:id="@+id/chaosGate"
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:layout_marginTop="84dp"
+            android:layout_marginLeft="15sp"
             android:src="@drawable/lion_sample"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <ImageView
+            android:id="@+id/goastShip"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintEnd_toStartOf="@+id/fieldBoss"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toEndOf="@+id/chaosGate"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <ImageView
+            android:id="@+id/fieldBoss"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="15sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/prokion_ChaosGate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text="유령선"
+            app:layout_constraintEnd_toEndOf="@+id/fieldBoss"
+            app:layout_constraintStart_toStartOf="@+id/fieldBoss"
+            app:layout_constraintTop_toBottomOf="@+id/fieldBoss" />
+
+        <TextView
+            android:id="@+id/prokion_FieldBoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text="필드보스"
+            app:layout_constraintEnd_toEndOf="@+id/goastShip"
+            app:layout_constraintStart_toStartOf="@+id/goastShip"
+            app:layout_constraintTop_toBottomOf="@+id/goastShip" />
+
+        <TextView
+            android:id="@+id/prokion_GoastShip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:text="카오스게이트"
+            app:layout_constraintEnd_toEndOf="@+id/chaosGate"
+            app:layout_constraintStart_toStartOf="@+id/chaosGate"
+            app:layout_constraintTop_toBottomOf="@+id/chaosGate" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="84dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -48,11 +103,11 @@
         app:layout_constraintTop_toBottomOf="@+id/prokion" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/roundingCreateButton"
+        android:id="@+id/createPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70sp"
         android:layout_marginRight="30sp"
+        android:layout_marginBottom="70sp"
         android:contentDescription="NewProject"
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"

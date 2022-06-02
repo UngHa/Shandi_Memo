@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="510sp">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/round"
+        android:gravity="center"
+        android:text="일정 추가"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/AddPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <EditText
+            android:id="@+id/createRoomName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_marginBottom="10sp"
+            android:hint="일정 제목을 입력해 주세요" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="일정 내용을 입력해 주세요"
+            android:inputType="text|textMultiLine"
+            android:minLines="10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selectImportancy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPlan">
+
+        <ImageButton
+            android:id="@+id/lowImportancy"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:src="@drawable/lion_sample" />
+
+        <ImageButton
+            android:id="@+id/middleImportancy"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_margin="10sp"
+            android:src="@drawable/lion_sample"/>
+
+        <ImageButton
+            android:id="@+id/highImportancy"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:src="@drawable/lion_sample"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitAddPlan"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20sp"
+        android:backgroundTint="@color/teal_200"
+        android:text="등록"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/selectImportancy" />
+
+    <Button
+        android:id="@+id/cancelAddPlan"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:backgroundTint="@color/teal_200"
+        android:text="취소"
+        android:textColor="@color/white"
+
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/selectImportancy" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
