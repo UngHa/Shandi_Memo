@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     CharacterManagement characterManagement;
     ContentsManagement contentsManagement;
     CalenderManagement userInformation;
+
+    //타이틀바 변수
+    TextView title;
 
     //네비게이션바 변수 YCK
     BottomNavigationView bottomNavigation;
@@ -38,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         contentsManagement = new ContentsManagement();
         characterManagement = new CharacterManagement();
 
+        // +타이틀 변경 YJW
+        title = findViewById(R.id.title);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.container, characterManagement).commit();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -46,19 +53,22 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.tab1:
-                        Toast.makeText(getApplicationContext(), "매칭리스트 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        title.setText("캐릭터 관리");
+                        Toast.makeText(getApplicationContext(), "캐릭터선택 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, characterManagement).commit();
 
                         return true;
                     case R.id.tab2:
-                        Toast.makeText(getApplicationContext(), "참여리스트 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        title.setText("체크리스트");
+                        Toast.makeText(getApplicationContext(), "체크리스트 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, contentsManagement).commit();
 
                         return true;
                     case R.id.tab3:
-                        Toast.makeText(getApplicationContext(), "유저정보 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        title.setText("일정 관리");
+                        Toast.makeText(getApplicationContext(), "일정관리 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, userInformation).commit();
 
