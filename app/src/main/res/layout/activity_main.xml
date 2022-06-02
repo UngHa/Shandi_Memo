@@ -4,7 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:id ="@+id/titlebar"
+        android:background="@color/main_color">
+
+        <ImageView
+            android:id="@+id/Shandi_Icon"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="10sp"
+            android:src="@drawable/home_test"
+            app:tint="@color/white" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="캐릭터 관리"/>
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/container"
@@ -14,7 +42,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar"
         app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
@@ -26,6 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/main_color"
         app:menu="@menu/menu_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
