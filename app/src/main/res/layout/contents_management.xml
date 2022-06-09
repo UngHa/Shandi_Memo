@@ -1,15 +1,598 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<!--,-->
+    <TextView
+        android:id="@+id/contentsCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="13sp"
+        android:layout_marginLeft="20sp"
+        android:gravity="left"
+        android:text="완료한 컨텐츠 체크리스트"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messageListRecycler"
-        android:scrollbars="vertical"
+    <LinearLayout
+        android:id="@+id/caracter_icon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contentsCheckTextView">
+
+        <ImageView
+            android:id="@+id/empty"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"/>
+        <ImageView
+            android:id="@+id/character1"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/arcana"/>
+        <ImageView
+            android:id="@+id/character2"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/soulmaster"/>
+        <ImageView
+            android:id="@+id/character3"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/riper"/>
+        <ImageView
+            android:id="@+id/character4"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/blade"/>
+        <ImageView
+            android:id="@+id/character5"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/warload"/>
+        <ImageView
+            android:id="@+id/character6"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_margin="5sp"
+            android:src="@drawable/soseress"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/oreha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/caracter_icon">
+
+        <ImageView
+            android:id="@+id/oreha_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_oreha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/oreha1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/oreha2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/oreha3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/oreha4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/oreha5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/oreha6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/kayangel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/oreha">
+
+        <ImageView
+            android:id="@+id/kayangel_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_kayangel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/kayangel1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kayangel2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kayangel3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kayangel4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kayangel5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kayangel6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/valtan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/kayangel">
+
+        <ImageView
+            android:id="@+id/valtan_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_valtan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/valtan1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/valtan2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/valtan3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/valtan4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/valtan5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/valtan6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vykas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/valtan">
+
+        <ImageView
+            android:id="@+id/vykas_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_vykas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/vykas1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/vykas2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/vykas3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/vykas4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/vykas5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/vykas6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/kuku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/vykas">
+
+        <ImageView
+            android:id="@+id/kuku_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_kuku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/kuku1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kuku2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kuku3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kuku4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kuku5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/kuku6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/avrel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/kuku">
+
+        <ImageView
+            android:id="@+id/avrel_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_avrel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/avrel1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/avrel2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/avrel3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/avrel4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/avrel5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/avrel6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/noru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/avrel">
+
+        <ImageView
+            android:id="@+id/noru_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/lion_sample"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/check_noru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentsCheckTextView">
+
+            <RadioButton
+                android:id="@+id/noru1"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/noru2"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/noru3"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/noru4"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/noru5"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/noru6"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/lion_sample"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

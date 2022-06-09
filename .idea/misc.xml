@@ -21,6 +21,8 @@
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/people_test.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/search_white.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/add_Plan.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/add_plan.xml" value="0.2" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/calendar_management.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/character_management.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/contents_management.xml" value="0.25364583333333335" />
@@ -29,6 +31,8 @@
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/message_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/user_information.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/menu/menu_bottom.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/mipmap-anydpi-v26/icon_shandi.xml" value="0.175" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/mipmap-anydpi-v26/icon_shandi_round.xml" value="0.175" />
       </map>
     </option>
   </component>
