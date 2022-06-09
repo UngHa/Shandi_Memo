@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310sp"
+    android:layout_height="350sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="캐릭터 설정"
+        android:textSize="30sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <!--프로필 부분-->
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toTopOf="@id/profileGuideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="20sp"
+        />
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:text="닉네임"
+        android:textSize="20sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toTopOf="@id/profileGuideline"
+        app:layout_constraintLeft_toLeftOf="@id/editGuideline"/>
+
+    <EditText
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:hint="닉네임을 입력하세요"
+        android:layout_marginTop="10sp"
+        android:textSize="15sp"
+        android:background="@drawable/edittext_round_corner"
+        app:layout_constraintTop_toBottomOf="@id/nameText"
+        app:layout_constraintLeft_toLeftOf="@id/editGuideline"/>
+
+    <!--클래스 이름-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:text="클래스"
+        android:textSize="20sp"
+        android:layout_marginStart="20sp"
+        app:layout_constraintTop_toTopOf="@id/classGuideline"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Spinner
+        android:id="@+id/classSpinner"
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:spinnerMode="dropdown"
+        android:minHeight="100sp"
+        app:layout_constraintTop_toTopOf="@id/classGuideline"
+        app:layout_constraintLeft_toLeftOf="@id/editGuideline"
+        android:entries="@array/classArray"/>
+
+    <!--아이템 레벨-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:text="아이템 레벨"
+        android:textSize="20sp"
+        android:layout_marginStart="20sp"
+        app:layout_constraintTop_toTopOf="@id/itemlevelGuideline"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+        android:layout_width="120sp"
+        android:layout_height="30sp"
+        android:hint="아이템 레벨 입력"
+        android:textSize="15sp"
+        android:background="@drawable/edittext_round_corner"
+        app:layout_constraintTop_toTopOf="@id/itemlevelGuideline"
+        app:layout_constraintLeft_toLeftOf="@id/editGuideline"/>
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="70sp"
+        android:layout_height="wrap_content"
+        android:text="저장"
+        android:textColor="@color/main_color"
+        android:layout_marginEnd="10sp"
+        app:layout_constraintTop_toTopOf="@id/buttonGuideline"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="70sp"
+        android:layout_height="wrap_content"
+        android:text="취소"
+        android:textColor="#ACACAC"
+        android:layout_marginEnd="10sp"
+        app:layout_constraintTop_toTopOf="@id/buttonGuideline"
+        app:layout_constraintRight_toLeftOf="@id/saveBtn"/>
+
+    <!--가이드라인-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/profileGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="60sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/classGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="190sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemlevelGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="240sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/editGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="140sp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

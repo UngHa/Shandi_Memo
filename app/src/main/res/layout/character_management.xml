@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/roundingCreateButton"
+        android:id="@+id/addCharacterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="70sp"
