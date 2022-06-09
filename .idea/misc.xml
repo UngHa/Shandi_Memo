@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/drawable/edittext_round_corner.xml" value="0.184" />
         <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/activity_main.xml" value="0.18718338399189463" />
+        <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/add_character.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/add_plan.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/calendar_management.xml" value="0.17806484295845998" />
         <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/character_list_item.xml" value="0.1875" />
         <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/character_management.xml" value="0.15625" />
         <entry key="..\:/Android_Workplace/Shandi_Memo/app/src/main/res/layout/list_item.xml" value="0.15625" />

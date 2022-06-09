@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class CharacterManagement extends Fragment {
     RecyclerView characterList;
     CharacterListAdapter adapter;
-
+    Dialog addCharDlg;
     Context context;
     OnTapItemSelectedListener listener;
 
@@ -85,16 +88,39 @@ public class CharacterManagement extends Fragment {
                 Toast.makeText(getContext(), position + "번째 매칭 선택됨", Toast.LENGTH_SHORT).show();
             }
         });*/
+        addCharDlg= new Dialog(getContext());
+        addCharDlg.setContentView(R.layout.add_character);
 
-        /*FloatingActionButton roundingCreate;
-        roundingCreate = rootView.findViewById(R.id.roundingCreateButton);
-        roundingCreate.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addChar = rootView.findViewById(R.id.addCharacterButton);
+        addChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intend = new Intent(getContext(),RoundingCreate.class);
-                startActivity(intend);
+                characterDialogShow(); // 다이얼로그 띄우기
+                //CJW : 주변 반투명 없애기, 상단 위치조정
+                addCharDlg.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                addCharDlg.getWindow().setGravity(Gravity.TOP);
+
             }
-        });*/
+        });
     }
 
+    public void characterDialogShow(){
+        addCharDlg.show();
+        // 취소
+        Button cancelBtn = addCharDlg.findViewById(R.id.cancelBtn);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCharDlg.dismiss();
+            }
+        });
+        // 적용
+        Button saveBtn = addCharDlg.findViewById(R.id.saveBtn);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCharDlg.dismiss();
+            }
+        });
+    }
 }
