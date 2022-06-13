@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-//MatchingList Fragment 처리 YCK
 public class ContentsManagement extends Fragment {
     RecyclerView messageList;
     MatchListAdapter adapter;
+
 
     Context context;
     OnTapItemSelectedListener listener;

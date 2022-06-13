@@ -98,8 +98,6 @@ public class CharacterManagement extends Fragment {
                 characterDialogShow(); // 다이얼로그 띄우기
                 //CJW : 주변 반투명 없애기, 상단 위치조정
                 addCharDlg.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                addCharDlg.getWindow().setGravity(Gravity.TOP);
-
             }
         });
     }

@@ -16,16 +16,20 @@
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/filter_white.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/home_test.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/icon_shandi_background.xml" value="0.1725" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/info_test_white.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/message_test.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/people_test.xml" value="0.1695" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/drawable/search_white.xml" value="0.1695" />
-        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/add_Plan.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/add_character.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/add_plan.xml" value="0.2" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/calendar_management.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/character_list_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/character_management.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/contents_management.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/intro_activity.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/list_item.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/maching_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ChoiJW/Desktop/mjc/AndroidApp/Shandi_Memo/app/src/main/res/layout/message_list.xml" value="0.25364583333333335" />
