@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    // matchingList, userInformation Fragment 변수 YCK
+    // matchingList, userInformation Fragment 변수
     CharacterManagement characterManagement;
     ContentsManagement contentsManagement;
     CalenderManagement userInformation;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     //타이틀바 변수
     TextView title;
 
-    //네비게이션바 변수 YCK
+    //네비게이션바 변수
     BottomNavigationView bottomNavigation;
 
     //CJW : 상단 필터링 이미지 버튼 용 다이얼로그 변수

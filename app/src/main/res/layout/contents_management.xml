@@ -100,7 +100,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -108,7 +108,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -116,7 +116,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -124,7 +124,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -132,7 +132,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -140,7 +140,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -175,7 +175,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -183,7 +183,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -191,7 +191,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -199,7 +199,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -207,7 +207,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -215,7 +215,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -250,7 +250,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -258,7 +258,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -266,7 +266,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -274,7 +274,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -282,7 +282,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -290,7 +290,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -325,7 +325,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -333,7 +333,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -341,7 +341,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -349,7 +349,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -357,7 +357,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -365,7 +365,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -400,7 +400,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -408,7 +408,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -416,7 +416,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -424,7 +424,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -432,7 +432,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -440,7 +440,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -475,7 +475,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -483,7 +483,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -491,7 +491,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -499,7 +499,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -507,7 +507,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -515,7 +515,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
@@ -550,7 +550,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -558,7 +558,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -566,7 +566,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -574,7 +574,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -582,7 +582,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
 
             <RadioButton
@@ -590,7 +590,7 @@
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_margin="10sp"
-                android:background="@drawable/lion_sample"
+                android:background="@drawable/check_none"
                 android:button="@null" />
         </RadioGroup>
     </LinearLayout>
