@@ -28,7 +28,7 @@ import java.sql.Ref;
 
 public class AddCharacter extends DialogFragment {
 
-    String name = "";
+    String name = "example";
 
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference charRef = RootRef.child("Character");
