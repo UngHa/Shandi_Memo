@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "322287468918",
+    "project_id": "shandimemo-e3fc0",
+    "storage_bucket": "shandimemo-e3fc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322287468918:android:ade229e242fe466668fa57",
+        "android_client_info": {
+          "package_name": "com.example.shandi_memo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322287468918-r2lv6u3u9fgramjm0fmcqkdii0rc47he.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shandi_memo",
+            "certificate_hash": "8332bd327f1d17c5da36a17d0970976c38ddd489"
+          }
+        },
+        {
+          "client_id": "322287468918-gn7a73qogbr995vub09vpn9c8lanb2v6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdSkevrUJr2J4rpXWZOr82bNAR3OyENFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322287468918-gn7a73qogbr995vub09vpn9c8lanb2v6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
