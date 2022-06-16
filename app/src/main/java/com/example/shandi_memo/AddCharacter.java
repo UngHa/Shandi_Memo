@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,9 +28,6 @@ import org.w3c.dom.Text;
 import java.sql.Ref;
 
 public class AddCharacter extends DialogFragment {
-
-    String name = "example";
-
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference charRef = RootRef.child("Character");
     DatabaseReference nameRef;
@@ -107,16 +105,20 @@ public class AddCharacter extends DialogFragment {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name = nameEdit.getText().toString();
+                String name = nameEdit.getText().toString();
+                String level = levelEdit.getText().toString();
 
-                nameRef = charRef.child(name);
-                classRef = nameRef.child("class");
-                levelRef = nameRef.child("level");
+                if (!name.trim().isEmpty() && !level.trim().isEmpty()) {
+                    nameRef = charRef.child(name);
+                    classRef = nameRef.child("class");
+                    levelRef = nameRef.child("level");
 
-                nameRef.setValue(name);
-                classRef.setValue(sp.getSelectedItem().toString());
-                levelRef.setValue(levelEdit.getText().toString());
-                dismiss();
+                    nameRef.setValue(name);
+                    classRef.setValue(sp.getSelectedItem().toString());
+                    levelRef.setValue(level);
+                    dismiss();
+                }
+                Toast.makeText(getContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
             }
         });
 
