@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,9 +35,6 @@ public class CalenderManagement extends Fragment {
 
     String title = "example";
 
-    EditText createRoomName;
-    EditText textField;
-
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference PlanRef = RootRef.child("Plan");
     DatabaseReference titleRef;
@@ -47,8 +45,7 @@ public class CalenderManagement extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.calendar_management, container, false);
 
-        EditText createRoomName = rootView.findViewById(R.id.createRoomName);
-        EditText textField = rootView.findViewById(R.id.textField);
+
 
         initUI(rootView);
         prokionCompass(rootView);
@@ -93,6 +90,9 @@ public class CalenderManagement extends Fragment {
 
     public void calendarDialogShow() {
 
+        EditText createRoomName = (EditText)calendarDialog.findViewById(R.id.createRoomName);
+        EditText textField = (EditText)calendarDialog.findViewById(R.id.textField);
+
         // 취소
         calendarDialog.show();
         Button cancelAddPlan = calendarDialog.findViewById(R.id.cancelAddPlan);
@@ -109,12 +109,16 @@ public class CalenderManagement extends Fragment {
             public void onClick(View view) {
                 title = createRoomName.getText().toString();
 
-                titleRef = PlanRef.child(title);
-                textRef = titleRef.child("text");
+                if (!title.trim().isEmpty()) {
+                    titleRef = PlanRef.child(title);
+                    textRef = titleRef.child("text");
 
-                titleRef.setValue(title);
-                textRef.setValue(textField.getText().toString());
-                calendarDialog.dismiss();
+                    titleRef.setValue(title);
+                    textRef.setValue(textField.getText().toString());
+                    calendarDialog.dismiss();
+                }
+                else
+                    Toast.makeText(getContext(), "제목을 입력하세요.", Toast.LENGTH_SHORT).show();
             }
         });
     }
