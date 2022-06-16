@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,14 +28,27 @@ import java.util.Date;
 public class CalenderManagement extends Fragment {
     RecyclerView calendarList;
     MatchListAdapter adapter;
-    ImageView chaosGate, fieldBoss, goastShip, noneMococo;
+    ImageView chaosGate, fieldBoss, goastShip;
 
     Dialog calendarDialog;
+
+    String title = "example";
+
+    EditText createRoomName;
+    EditText textField;
+
+    DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference PlanRef = RootRef.child("Plan");
+    DatabaseReference titleRef;
+    DatabaseReference textRef;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.calendar_management, container, false);
+
+        EditText createRoomName = rootView.findViewById(R.id.createRoomName);
+        EditText textField = rootView.findViewById(R.id.textField);
 
         initUI(rootView);
         prokionCompass(rootView);
@@ -76,6 +92,7 @@ public class CalenderManagement extends Fragment {
     }
 
     public void calendarDialogShow() {
+
         // 취소
         calendarDialog.show();
         Button cancelAddPlan = calendarDialog.findViewById(R.id.cancelAddPlan);
@@ -90,6 +107,13 @@ public class CalenderManagement extends Fragment {
         submitAddPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title = createRoomName.getText().toString();
+
+                titleRef = PlanRef.child(title);
+                textRef = titleRef.child("text");
+
+                titleRef.setValue(title);
+                textRef.setValue(textField.getText().toString());
                 calendarDialog.dismiss();
             }
         });
