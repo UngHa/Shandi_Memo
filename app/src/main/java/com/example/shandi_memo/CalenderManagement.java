@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,23 +18,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Calendar;
+import java.util.Date;
+
 //user_information Fragment 처리 YCK
 public class CalenderManagement extends Fragment {
     RecyclerView calendarList;
     MatchListAdapter adapter;
+    ImageView chaosGate, fieldBoss, goastShip, noneMococo;
 
     Dialog calendarDialog;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.calendar_management, container, false);
 
         initUI(rootView);
+        prokionCompass(rootView);
 
         return rootView;
     }
 
-    private void initUI(ViewGroup rootView){
+    private void initUI(ViewGroup rootView) {
         calendarList = rootView.findViewById(R.id.matchListRecycler);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -52,7 +58,7 @@ public class CalenderManagement extends Fragment {
         calendarList.setAdapter(adapter);
 
         //CJW : +버튼 클릭시
-        calendarDialog= new Dialog(getContext());
+        calendarDialog = new Dialog(getContext());
         calendarDialog.setContentView(R.layout.add_plan);             // xml 레이아웃 파일과 연결
 
         FloatingActionButton createPlan = rootView.findViewById(R.id.createPlan);
@@ -69,7 +75,7 @@ public class CalenderManagement extends Fragment {
 
     }
 
-    public void calendarDialogShow(){
+    public void calendarDialogShow() {
         // 취소
         calendarDialog.show();
         Button cancelAddPlan = calendarDialog.findViewById(R.id.cancelAddPlan);
@@ -87,5 +93,60 @@ public class CalenderManagement extends Fragment {
                 calendarDialog.dismiss();
             }
         });
+    }
+
+    public void prokionCompass(ViewGroup rootView) {
+        chaosGate = rootView.findViewById(R.id.chaosGate);
+        fieldBoss = rootView.findViewById(R.id.fieldBoss);
+        goastShip = rootView.findViewById(R.id.goastShip);
+        int i = getCurrentWeek();
+        switch (i) {
+            case 0:
+                chaosGate.setImageResource(R.drawable.chaos_gate_img);
+                fieldBoss.setImageResource(R.drawable.none_mococo_img);
+                goastShip.setImageResource(R.drawable.none_mococo_img);
+                break;
+            case 1:
+                chaosGate.setImageResource(R.drawable.none_mococo_img);
+                fieldBoss.setImageResource(R.drawable.field_boss_img);
+                goastShip.setImageResource(R.drawable.goast_ship_img);
+                break;
+            case 2:
+                chaosGate.setImageResource(R.drawable.none_mococo_img);
+                fieldBoss.setImageResource(R.drawable.none_mococo_img);
+                goastShip.setImageResource(R.drawable.none_mococo_img);
+                break;
+            case 3:
+                chaosGate.setImageResource(R.drawable.chaos_gate_img);
+                fieldBoss.setImageResource(R.drawable.none_mococo_img);
+                goastShip.setImageResource(R.drawable.goast_ship_img);
+                break;
+            case 4:
+                chaosGate.setImageResource(R.drawable.none_mococo_img);
+                fieldBoss.setImageResource(R.drawable.field_boss_img);
+                goastShip.setImageResource(R.drawable.none_mococo_img);
+                break;
+            case 5:
+                chaosGate.setImageResource(R.drawable.chaos_gate_img);
+                fieldBoss.setImageResource(R.drawable.none_mococo_img);
+                goastShip.setImageResource(R.drawable.goast_ship_img);
+                break;
+            case 6:
+                chaosGate.setImageResource(R.drawable.chaos_gate_img);
+                fieldBoss.setImageResource(R.drawable.field_boss_img);
+                goastShip.setImageResource(R.drawable.none_mococo_img);
+                break;
+        }
+    }
+
+    public static int getCurrentWeek() {
+        Date currentDate = new Date();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        int week = calendar.get(Calendar.DAY_OF_WEEK);
+
+        return week;
     }
 }
