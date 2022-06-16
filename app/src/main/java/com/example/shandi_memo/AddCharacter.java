@@ -118,7 +118,8 @@ public class AddCharacter extends DialogFragment {
                     levelRef.setValue(level);
                     dismiss();
                 }
-                Toast.makeText(getContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
             }
         });
 
