@@ -7,14 +7,34 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
+import java.sql.Ref;
+
 public class AddCharacter extends DialogFragment {
+
+    String name = "";
+
+    DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference charRef = RootRef.child("Character");
+    DatabaseReference nameRef;
+    DatabaseReference classRef;
+    DatabaseReference levelRef;
 
     public AddCharacter(){}
 
@@ -27,6 +47,9 @@ public class AddCharacter extends DialogFragment {
         View v = inflater.inflate(R.layout.add_character, container);
         Spinner sp = (Spinner)v.findViewById(R.id.classSpinner);
         ImageView profileImg = (ImageView)v.findViewById(R.id.profileImg);
+
+        EditText nameEdit = (EditText)v.findViewById(R.id.nameEdit);
+        EditText levelEdit = (EditText)v.findViewById(R.id.levelEdit);
 
         ArrayAdapter<String> classAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item,
@@ -84,6 +107,15 @@ public class AddCharacter extends DialogFragment {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                name = nameEdit.getText().toString();
+
+                nameRef = charRef.child(name);
+                classRef = nameRef.child("class");
+                levelRef = nameRef.child("level");
+
+                nameRef.setValue(name);
+                classRef.setValue(sp.getSelectedItem().toString());
+                levelRef.setValue(levelEdit.getText().toString());
                 dismiss();
             }
         });

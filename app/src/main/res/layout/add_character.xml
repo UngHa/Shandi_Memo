@@ -37,6 +37,7 @@
         app:layout_constraintLeft_toLeftOf="@id/editGuideline"/>
 
     <EditText
+        android:id="@+id/nameEdit"
         android:layout_width="160sp"
         android:layout_height="30sp"
         android:hint="닉네임을 입력하세요"
@@ -77,6 +78,7 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <EditText
+        android:id="@+id/levelEdit"
         android:layout_width="120sp"
         android:layout_height="30sp"
         android:hint="아이템 레벨 입력"
