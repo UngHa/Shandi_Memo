@@ -1,22 +1,22 @@
 package com.example.shandi_memo;
 
 public class CharacterItem {
-    String charName;
+    String name;
     String className;
-    String itemLevel;
+    String level;
 
-    public CharacterItem(String charName, String className, String itemLevel){
-        this.charName = charName;
+    public CharacterItem(String name, String className, String level){
+        this.name = name;
         this.className = className;
-        this.itemLevel = itemLevel;
+        this.level = level;
     }
 
-    public String getCharName() {
-        return charName;
+    public String getName() {
+        return name;
     }
 
-    public void setCharName(String charName) {
-        this.charName = charName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getClassName() {
@@ -27,11 +27,11 @@ public class CharacterItem {
         this.className = className;
     }
 
-    public String getItemLevel() {
-        return itemLevel;
+    public String getLevel() {
+        return level;
     }
 
-    public void setItemLevel(String itemLevel) {
-        this.itemLevel = itemLevel;
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
