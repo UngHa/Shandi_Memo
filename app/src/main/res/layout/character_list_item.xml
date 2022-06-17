@@ -51,13 +51,23 @@
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/levelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:text="아이템 레벨"
+            app:layout_constraintTop_toBottomOf="@id/className"
+            app:layout_constraintLeft_toRightOf="@id/profileIcon"
+            android:layout_marginStart="10sp"
+            android:textSize="15sp"
+        />
+        <TextView
             android:id="@+id/itemLevel"
             android:layout_width="wrap_content"
             android:layout_height="20sp"
             app:layout_constraintTop_toBottomOf="@id/className"
-            app:layout_constraintLeft_toRightOf="@id/profileIcon"
+            app:layout_constraintLeft_toRightOf="@id/levelTextView"
             android:text="@string/null_text"
-            android:layout_marginStart="10sp"
+            android:layout_marginStart="5sp"
             android:textSize="15sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
