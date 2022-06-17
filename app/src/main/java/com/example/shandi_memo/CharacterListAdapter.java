@@ -34,50 +34,73 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String classname = items.get(position).getClassName();
-        if (classname.equals("디스트로이어")) {
-            holder.profileIcon.setImageResource(R.drawable.destroyer);
-        } else if (classname.equals("워로드")) {
-            holder.profileIcon.setImageResource(R.drawable.warlord);
-        } else if (classname.equals("버서커")) {
-            holder.profileIcon.setImageResource(R.drawable.berserker);
-        } else if (classname.equals("홀리나이트")) {
-            holder.profileIcon.setImageResource(R.drawable.holyknight);
-        } else if (classname.equals("배틀마스터")) {
-            holder.profileIcon.setImageResource(R.drawable.battlemaster);
-        } else if (classname.equals("인파이터")) {
-            holder.profileIcon.setImageResource(R.drawable.infighter);
-        } else if (classname.equals("기공사")) {
-            holder.profileIcon.setImageResource(R.drawable.soulmaster);
-        } else if (classname.equals("창술사")) {
-            holder.profileIcon.setImageResource(R.drawable.lancemaster);
-        } else if (classname.equals("스트라이커")) {
-            holder.profileIcon.setImageResource(R.drawable.striker);
-        } else if (classname.equals("데빌헌터")) {
-            holder.profileIcon.setImageResource(R.drawable.devilhunter);
-        } else if (classname.equals("블래스터")) {
-            holder.profileIcon.setImageResource(R.drawable.blaster);
-        } else if (classname.equals("호크아이")) {
-            holder.profileIcon.setImageResource(R.drawable.hawkeye);
-        } else if (classname.equals("스카우터")) {
-            holder.profileIcon.setImageResource(R.drawable.scouter);
-        } else if (classname.equals("건슬링어")) {
-            holder.profileIcon.setImageResource(R.drawable.gunslinger);
-        } else if (classname.equals("바드")) {
-            holder.profileIcon.setImageResource(R.drawable.bard);
-        } else if (classname.equals("서머너")) {
-            holder.profileIcon.setImageResource(R.drawable.summoner);
-        } else if (classname.equals("아르카나")) {
-            holder.profileIcon.setImageResource(R.drawable.arcanist);
-        } else if (classname.equals("소서리스")) {
-            holder.profileIcon.setImageResource(R.drawable.sorceress);
-        } else if (classname.equals("데모닉")) {
-            holder.profileIcon.setImageResource(R.drawable.demonic);
-        } else if (classname.equals("블레이드")) {
-            holder.profileIcon.setImageResource(R.drawable.blade);
-        } else if (classname.equals("리퍼")) {
-            holder.profileIcon.setImageResource(R.drawable.reaper);
-        } else if (classname.equals("도화가")) {
-            holder.profileIcon.setImageResource(R.drawable.artist);
+        switch (classname) {
+            case "디스트로이어":
+                holder.profileIcon.setImageResource(R.drawable.destroyer);
+                break;
+            case "워로드":
+                holder.profileIcon.setImageResource(R.drawable.warlord);
+                break;
+            case "버서커":
+                holder.profileIcon.setImageResource(R.drawable.berserker);
+                break;
+            case "홀리나이트":
+                holder.profileIcon.setImageResource(R.drawable.holyknight);
+                break;
+            case "배틀마스터":
+                holder.profileIcon.setImageResource(R.drawable.battlemaster);
+                break;
+            case "인파이터":
+                holder.profileIcon.setImageResource(R.drawable.infighter);
+                break;
+            case "기공사":
+                holder.profileIcon.setImageResource(R.drawable.soulmaster);
+                break;
+            case "창술사":
+                holder.profileIcon.setImageResource(R.drawable.lancemaster);
+                break;
+            case "스트라이커":
+                holder.profileIcon.setImageResource(R.drawable.striker);
+                break;
+            case "데빌헌터":
+                holder.profileIcon.setImageResource(R.drawable.devilhunter);
+                break;
+            case "블래스터":
+                holder.profileIcon.setImageResource(R.drawable.blaster);
+                break;
+            case "호크아이":
+                holder.profileIcon.setImageResource(R.drawable.hawkeye);
+                break;
+            case "스카우터":
+                holder.profileIcon.setImageResource(R.drawable.scouter);
+                break;
+            case "건슬링어":
+                holder.profileIcon.setImageResource(R.drawable.gunslinger);
+                break;
+            case "바드":
+                holder.profileIcon.setImageResource(R.drawable.bard);
+                break;
+            case "서머너":
+                holder.profileIcon.setImageResource(R.drawable.summoner);
+                break;
+            case "아르카나":
+                holder.profileIcon.setImageResource(R.drawable.arcanist);
+                break;
+            case "소서리스":
+                holder.profileIcon.setImageResource(R.drawable.sorceress);
+                break;
+            case "데모닉":
+                holder.profileIcon.setImageResource(R.drawable.demonic);
+                break;
+            case "블레이드":
+                holder.profileIcon.setImageResource(R.drawable.blade);
+                break;
+            case "리퍼":
+                holder.profileIcon.setImageResource(R.drawable.reaper);
+                break;
+            case "도화가":
+                holder.profileIcon.setImageResource(R.drawable.artist);
+                break;
         }
         holder.profileIcon.setColorFilter(R.color.black);
         holder.charName.setText(items.get(position).getName());
