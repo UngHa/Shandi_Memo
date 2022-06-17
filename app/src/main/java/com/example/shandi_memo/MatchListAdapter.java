@@ -90,9 +90,9 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
 
         public void setItem(MatchingItem item){
             profileImageView.setImageResource(R.drawable.ic_launcher_foreground);
-            matchName.setText(item.getMatchName());
-            matchDate.setText(item.getMatchDate());
-            matchLocation.setText(item.getMatchLocation());
+            matchName.setText(item.getPlanName());
+            matchDate.setText(item.getPlanDate());
+            matchLocation.setText(item.getPlanText());
         }
     }
 }
