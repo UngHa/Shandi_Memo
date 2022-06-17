@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdapter.ViewHolder>  {
-    ArrayList<CharacterItem> items = new ArrayList<CharacterItem>();
+    ArrayList<CharacterItem> items;
     Context context;
     OnTapItemSelectedListener listener;
 
