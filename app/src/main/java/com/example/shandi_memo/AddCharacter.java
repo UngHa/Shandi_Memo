@@ -129,3 +129,6 @@ public class AddCharacter extends DialogFragment {
         return v;
     }
 }
+
+
+

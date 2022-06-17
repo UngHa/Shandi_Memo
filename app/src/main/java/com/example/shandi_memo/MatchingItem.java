@@ -2,14 +2,14 @@ package com.example.shandi_memo;
 
 public class MatchingItem {
     String profile;
-    String matchName;
-    String matchDate;
-    String matchLocation;
+    String planName;
+    String planDate;
+    String planText;
 
-    public MatchingItem(String matchName, String matchDate, String matchLocation){
-        this.matchName = matchName;
-        this.matchDate = matchDate;
-        this.matchLocation = matchLocation;
+    public MatchingItem(String planName, String planDate, String planText){
+        this.planName = planName;
+        this.planDate = planDate;
+        this.planText = planText;
     }
 
     public String getProfile() {
@@ -20,27 +20,27 @@ public class MatchingItem {
         this.profile = profile;
     }
 
-    public String getMatchName() {
-        return matchName;
+    public String getPlanName() {
+        return planName;
     }
 
-    public void setMatchName(String matchName) {
-        this.matchName = matchName;
+    public void setPlanName(String planName) {
+        this.planName = planName;
     }
 
-    public String getMatchDate() {
-        return matchDate;
+    public String getPlanDate() {
+        return planDate;
     }
 
-    public void setMatchDate(String matchDate) {
-        this.matchDate = matchDate;
+    public void setPlanDate(String planDate) {
+        this.planDate = planDate;
     }
 
-    public String getMatchLocation() {
-        return matchLocation;
+    public String getPlanText() {
+        return planText;
     }
 
-    public void setMatchLocation(String matchLocation) {
-        this.matchLocation = matchLocation;
+    public void setPlanText(String planText) {
+        this.planText = planText;
     }
 }
