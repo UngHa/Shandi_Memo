@@ -54,6 +54,7 @@ public class CalenderManagement extends Fragment {
     DatabaseReference textRef;
     DatabaseReference monthRef;
     DatabaseReference dayRef;
+    DatabaseReference roomNameRef;
 
     @Nullable
     @Override
@@ -89,6 +90,23 @@ public class CalenderManagement extends Fragment {
             }
         });
 
+        RootRef.child("Plan").child(title).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
+                planName = gpi.getTitle();
+                planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
+                planText = gpi.getText();
+
+                adapter.addItem(new MatchingItem(planName, planDate, planText));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         calendarList.setLayoutManager(layoutManager);
@@ -150,14 +168,16 @@ public class CalenderManagement extends Fragment {
                 if (!title.trim().isEmpty()) {
 
                     titleRef = PlanRef.child(title);
-                    textRef = titleRef.child("Text");
-                    monthRef = titleRef.child("Month");
-                    dayRef = titleRef.child("Day");
+                    textRef = titleRef.child("text");
+                    monthRef = titleRef.child("month");
+                    dayRef = titleRef.child("day");
+                    roomNameRef = titleRef.child("title");
 
                     titleRef.setValue(title);
                     textRef.setValue(textField.getText().toString());
                     monthRef.setValue(Integer.toString(month));
                     dayRef.setValue(Integer.toString(day));
+                    roomNameRef.setValue(title);
                     ReadGetPlanInf();
                     calendarDialog.dismiss();
                 } else
@@ -231,13 +251,8 @@ public class CalenderManagement extends Fragment {
                 planName = gpi.getTitle();
                 planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
                 planText = gpi.getText();
-                Log.d("test", "ValueEventListener : " + planName);
-                Log.d("test", "ValueEventListener : " + planDate);
-                Log.d("test", "ValueEventListener : " + planText);
 
-                //dapter.addItem(new MatchingItem(planName, "창술사", "1540"));
-
-
+                adapter.addItem(new MatchingItem(planName, planDate, planText));
             }
 
             @Override
@@ -245,8 +260,6 @@ public class CalenderManagement extends Fragment {
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
             }
         });
-
-
     }
 
 }
