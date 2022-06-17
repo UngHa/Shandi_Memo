@@ -29,9 +29,10 @@ import java.sql.Ref;
 
 public class AddCharacter extends DialogFragment {
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference charRef = RootRef.child("Character");
+    DatabaseReference characterRef = RootRef.child("Character");
+    DatabaseReference charRef;
     DatabaseReference nameRef;
-    DatabaseReference classRef;
+    DatabaseReference classNameRef;
     DatabaseReference levelRef;
 
     public AddCharacter(){}
@@ -109,12 +110,14 @@ public class AddCharacter extends DialogFragment {
                 String level = levelEdit.getText().toString();
 
                 if (!name.trim().isEmpty() && !level.trim().isEmpty()) {
-                    nameRef = charRef.child(name);
-                    classRef = nameRef.child("class");
-                    levelRef = nameRef.child("level");
+                    charRef = characterRef.child(name);
+                    nameRef = charRef.child("name");
+                    classNameRef = charRef.child("className");
+                    levelRef = charRef.child("level");
 
+                    charRef.setValue(name);
                     nameRef.setValue(name);
-                    classRef.setValue(sp.getSelectedItem().toString());
+                    classNameRef.setValue(sp.getSelectedItem().toString());
                     levelRef.setValue(level);
                     dismiss();
                 }

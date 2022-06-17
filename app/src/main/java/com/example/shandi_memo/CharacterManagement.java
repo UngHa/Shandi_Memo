@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -22,14 +23,22 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class CharacterManagement extends Fragment {
-    RecyclerView characterList;
+    RecyclerView characterListRecycler;
     CharacterListAdapter adapter;
-    Dialog addCharDlg;
     Context context;
     OnTapItemSelectedListener listener;
+    ArrayList<CharacterItem> characterList;
 
     public void onAttach(Context context){
         super.onAttach(context);
@@ -60,16 +69,36 @@ public class CharacterManagement extends Fragment {
 
     private void initUI(ViewGroup rootView){
 
-        characterList = rootView.findViewById(R.id.characterListRecycler);
+        DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference characterRef = RootRef.child("Character");
 
+        characterListRecycler = rootView.findViewById(R.id.characterListRecycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        characterList.setLayoutManager(layoutManager);
+        characterListRecycler.setLayoutManager(layoutManager);
+        characterList = new ArrayList<>();
 
-        //RecyclerView에 아이템을 추가
-        adapter = new CharacterListAdapter();
-        adapter.addItem(new CharacterItem("신비는고양이", "창술사", "1540"));
-        adapter.addItem(new CharacterItem("다같이꼭다시만나", "홀리나이트", "1460"));
-        characterList.setAdapter(adapter);
+        characterRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                characterList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String className = dataSnapshot.child("className").getValue(String.class);
+                    String level = dataSnapshot.child("level").getValue(String.class);
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    CharacterItem characterItem = new CharacterItem(name, className, level);
+                    characterList.add(characterItem);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        adapter = new CharacterListAdapter(characterList, getContext());
+        characterListRecycler.setAdapter(adapter);
 
         //매칭리스트 리스너
         /*adapter.setOnItemClickListener(new OnTapItemSelectedListener() {
