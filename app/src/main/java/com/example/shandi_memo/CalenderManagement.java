@@ -1,13 +1,18 @@
 package com.example.shandi_memo;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,17 +20,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Date;
 
-//user_information Fragment 처리 YCK
 public class CalenderManagement extends Fragment {
     RecyclerView calendarList;
     MatchListAdapter adapter;
@@ -35,17 +44,21 @@ public class CalenderManagement extends Fragment {
 
     String title = "example";
 
+
+    int year, month, day;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference PlanRef = RootRef.child("Plan");
     DatabaseReference titleRef;
     DatabaseReference textRef;
+    DatabaseReference monthRef;
+    DatabaseReference dayRef;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.calendar_management, container, false);
-
-
 
         initUI(rootView);
         prokionCompass(rootView);
@@ -53,20 +66,34 @@ public class CalenderManagement extends Fragment {
         return rootView;
     }
 
+
     private void initUI(ViewGroup rootView) {
+
+
         calendarList = rootView.findViewById(R.id.matchListRecycler);
+        mSwipeRefreshLayout = rootView.findViewById(R.id.swiperefreshlayout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                final Handler handler = new Handler();
+                ft.detach(CalenderManagement.this).attach(CalenderManagement.this).commit();
+
+                adapter.notifyDataSetChanged(); // 변경되었음을 어답터에 알려준다.
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+            }
+        });
+
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         calendarList.setLayoutManager(layoutManager);
 
         adapter = new MatchListAdapter();
-
-        adapter.addItem(new MatchingItem("일정제목1", "5월 18일", "하브렐슈드 4넴까지"));
-        adapter.addItem(new MatchingItem("일정제목2", "5월 19일", "바드님이랑 45캐릭빼기"));
-        adapter.addItem(new MatchingItem("일정제목3", "5월 22일", "00님,00님 고정팟"));
-        adapter.addItem(new MatchingItem("일정제목4", "5월 23일", "길드 이벤트 참여일"));
-        adapter.addItem(new MatchingItem("일정제목5", "5월 25일", "발비쿠하"));
-        adapter.addItem(new MatchingItem("일정제목6", "5월 29일", "카양겔"));
 
         calendarList.setAdapter(adapter);
 
@@ -90,11 +117,22 @@ public class CalenderManagement extends Fragment {
 
     public void calendarDialogShow() {
 
-        EditText createRoomName = (EditText)calendarDialog.findViewById(R.id.createRoomName);
-        EditText textField = (EditText)calendarDialog.findViewById(R.id.textField);
-
-        // 취소
+        EditText createRoomName = (EditText) calendarDialog.findViewById(R.id.createRoomName);
+        EditText textField = (EditText) calendarDialog.findViewById(R.id.textField);
+        DatePicker datePicker = (DatePicker) calendarDialog.findViewById(R.id.datePicker);
         calendarDialog.show();
+        createRoomName.setText("");
+        textField.setText("");
+        datePicker.setMinDate(System.currentTimeMillis());
+        datePicker.init(year, month, day, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int y, int m, int d) {
+                year = y;
+                month = m + 1;
+                day = d;
+            }
+        });
+
         Button cancelAddPlan = calendarDialog.findViewById(R.id.cancelAddPlan);
         cancelAddPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,14 +148,19 @@ public class CalenderManagement extends Fragment {
                 title = createRoomName.getText().toString();
 
                 if (!title.trim().isEmpty()) {
+
                     titleRef = PlanRef.child(title);
-                    textRef = titleRef.child("text");
+                    textRef = titleRef.child("Text");
+                    monthRef = titleRef.child("Month");
+                    dayRef = titleRef.child("Day");
 
                     titleRef.setValue(title);
                     textRef.setValue(textField.getText().toString());
+                    monthRef.setValue(Integer.toString(month));
+                    dayRef.setValue(Integer.toString(day));
+                    ReadGetPlanInf();
                     calendarDialog.dismiss();
-                }
-                else
+                } else
                     Toast.makeText(getContext(), "제목을 입력하세요.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -177,4 +220,33 @@ public class CalenderManagement extends Fragment {
 
         return week;
     }
+
+    public static String planName, planDate, planText;
+
+    public void ReadGetPlanInf() {
+        RootRef.child("Plan").child(title).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
+                planName = gpi.getTitle();
+                planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
+                planText = gpi.getText();
+                Log.d("test", "ValueEventListener : " + planName);
+                Log.d("test", "ValueEventListener : " + planDate);
+                Log.d("test", "ValueEventListener : " + planText);
+
+                //dapter.addItem(new MatchingItem(planName, "창술사", "1540"));
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
+
+
+    }
+
 }

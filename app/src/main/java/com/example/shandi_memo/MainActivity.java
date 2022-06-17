@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     // matchingList, userInformation Fragment 변수
     CharacterManagement characterManagement;
     ContentsManagement contentsManagement;
-    CalenderManagement userInformation;
+    CalenderManagement calenderManagemnet;
 
     //타이틀바 변수
     TextView title;
@@ -26,19 +26,13 @@ public class MainActivity extends AppCompatActivity {
     //네비게이션바 변수
     BottomNavigationView bottomNavigation;
 
-    //CJW : 상단 필터링 이미지 버튼 용 다이얼로그 변수
-    Dialog filterDialog;
-
-    //매너평가 화면출력
-    ImageButton btn1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Fragment 전환 코드 YCK
-        userInformation = new CalenderManagement();
+        calenderManagemnet = new CalenderManagement();
         contentsManagement = new ContentsManagement();
         characterManagement = new CharacterManagement();
 
@@ -70,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         title.setText("일정 관리");
                         Toast.makeText(getApplicationContext(), "일정관리 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, userInformation).commit();
+                                .replace(R.id.container, calenderManagemnet).commit();
 
                         return true;
                 }
