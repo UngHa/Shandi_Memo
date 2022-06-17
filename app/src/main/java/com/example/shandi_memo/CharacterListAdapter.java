@@ -33,53 +33,55 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (holder.className.getText() == "디스트로이어") {
+        String classname = items.get(position).getClassName();
+        if (classname.equals("디스트로이어")) {
             holder.profileIcon.setImageResource(R.drawable.destroyer);
-        } else if (holder.className.getText() == "워로드") {
+        } else if (classname.equals("워로드")) {
             holder.profileIcon.setImageResource(R.drawable.warlord);
-        } else if (holder.className.getText() == "버서커") {
+        } else if (classname.equals("버서커")) {
             holder.profileIcon.setImageResource(R.drawable.berserker);
-        } else if (holder.className.getText() == "홀리나이트") {
+        } else if (classname.equals("홀리나이트")) {
             holder.profileIcon.setImageResource(R.drawable.holyknight);
-        } else if (holder.className.getText() == "배틀마스터") {
+        } else if (classname.equals("배틀마스터")) {
             holder.profileIcon.setImageResource(R.drawable.battlemaster);
-        } else if (holder.className.getText() == "인파이터") {
+        } else if (classname.equals("인파이터")) {
             holder.profileIcon.setImageResource(R.drawable.infighter);
-        } else if (holder.className.getText() == "기공사") {
+        } else if (classname.equals("기공사")) {
             holder.profileIcon.setImageResource(R.drawable.soulmaster);
-        } else if (holder.className.getText() == "창술사") {
+        } else if (classname.equals("창술사")) {
             holder.profileIcon.setImageResource(R.drawable.lancemaster);
-        } else if (holder.className.getText() == "스트라이커") {
+        } else if (classname.equals("스트라이커")) {
             holder.profileIcon.setImageResource(R.drawable.striker);
-        } else if (holder.className.getText() == "데빌헌터") {
+        } else if (classname.equals("데빌헌터")) {
             holder.profileIcon.setImageResource(R.drawable.devilhunter);
-        } else if (holder.className.getText() == "블래스터") {
+        } else if (classname.equals("블래스터")) {
             holder.profileIcon.setImageResource(R.drawable.blaster);
-        } else if (holder.className.getText() == "호크아이") {
+        } else if (classname.equals("호크아이")) {
             holder.profileIcon.setImageResource(R.drawable.hawkeye);
-        } else if (holder.className.getText() == "스카우터") {
+        } else if (classname.equals("스카우터")) {
             holder.profileIcon.setImageResource(R.drawable.scouter);
-        } else if (holder.className.getText() == "건슬링어") {
+        } else if (classname.equals("건슬링어")) {
             holder.profileIcon.setImageResource(R.drawable.gunslinger);
-        } else if (holder.className.getText() == "바드") {
+        } else if (classname.equals("바드")) {
             holder.profileIcon.setImageResource(R.drawable.bard);
-        } else if (holder.className.getText() == "서머너") {
+        } else if (classname.equals("서머너")) {
             holder.profileIcon.setImageResource(R.drawable.summoner);
-        } else if (holder.className.getText() == "아르카나") {
+        } else if (classname.equals("아르카나")) {
             holder.profileIcon.setImageResource(R.drawable.arcanist);
-        } else if (holder.className.getText() == "소서리스") {
+        } else if (classname.equals("소서리스")) {
             holder.profileIcon.setImageResource(R.drawable.sorceress);
-        } else if (holder.className.getText() == "데모닉") {
+        } else if (classname.equals("데모닉")) {
             holder.profileIcon.setImageResource(R.drawable.demonic);
-        } else if (holder.className.getText() == "블레이드") {
+        } else if (classname.equals("블레이드")) {
             holder.profileIcon.setImageResource(R.drawable.blade);
-        } else if (holder.className.getText() == "리퍼") {
+        } else if (classname.equals("리퍼")) {
             holder.profileIcon.setImageResource(R.drawable.reaper);
-        } else if (holder.className.getText() == "도화가") {
+        } else if (classname.equals("도화가")) {
             holder.profileIcon.setImageResource(R.drawable.artist);
         }
+        holder.profileIcon.setColorFilter(R.color.black);
         holder.charName.setText(items.get(position).getName());
-        holder.className.setText(items.get(position).getClassName());
+        holder.className.setText(classname);
         holder.ItemLv.setText(items.get(position).getLevel());
         context = holder.itemView.getContext();
 
