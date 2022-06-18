@@ -108,8 +108,7 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         holder.ItemLv.setText(items.get(position).getLevel());
         context = holder.itemView.getContext();
 
-        //CharacterItem item = items.get(position);
-       // holder.setItem(item);
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -117,27 +116,9 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         return items.size();
     }
 
-    /*public void addItem(CharacterItem item){
-        items.add(item);
-    }
-
-    public void setItems(ArrayList<CharacterItem> items){
-        this.items = items;
-    }
-
-    public CharacterItem getItem(int position){
-        return items.get(position);
-    }
-
     public void setOnItemClickListener(OnTapItemSelectedListener listener){
         this.listener = listener;
     }
-
-    public void onItemClick(ViewHolder holder, View view, int position){
-        if(listener != null){
-            listener.onItemClick(holder, view, position);
-        }
-    }*/
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView profileIcon;
@@ -164,13 +145,6 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
                 }
             });
 
-        }
-
-        public void setItem(CharacterItem item){
-            profileIcon.setImageResource(R.drawable.ic_launcher_foreground);
-            charName.setText(item.getName());
-            className.setText(item.getClassName());
-            ItemLv.setText(item.getLevel());
         }
     }
 }

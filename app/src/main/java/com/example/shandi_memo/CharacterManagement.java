@@ -1,24 +1,13 @@
 package com.example.shandi_memo;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -101,29 +90,31 @@ public class CharacterManagement extends Fragment {
         characterListRecycler.setAdapter(adapter);
 
         //매칭리스트 리스너
-        /*adapter.setOnItemClickListener(new OnTapItemSelectedListener() {
+        adapter.setOnItemClickListener(new OnTapItemSelectedListener() {
+
             @Override
             public void onItemClick(MatchListAdapter.ViewHolder holder, View view, int position) {
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
-
-                search = View.inflate(getContext(), R.layout.search_filtering_dialog,null);
-                dlg.setView(search);
-                dlg.setNegativeButton("닫기", null);
-                dlg.setPositiveButton("참여", null);
-                dlg.show();
-
-                CharacterItem item = adapter.getItem(position);
-                Toast.makeText(getContext(), position + "번째 매칭 선택됨", Toast.LENGTH_SHORT).show();
             }
-        });*/
+
+            @Override
+            public void onItemClick(CharacterListAdapter.ViewHolder holder, View view, int position) {
+               Bundle args = new Bundle();
+               args.putString("name", characterList.get(position).getName());
+               args.putString("className", characterList.get(position).getClassName());
+               args.putString("level", characterList.get(position).getLevel());
+               CharacterInfo ReceiverDialog1 = CharacterInfo.getInstance();
+               ReceiverDialog1.setArguments(args);
+               ReceiverDialog1.show(getFragmentManager(), "character_info");
+            }
+        });
 
         FloatingActionButton addChar = rootView.findViewById(R.id.addCharacterButton);
         addChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddCharacter mletterReceiverDialog = AddCharacter.getInstance();
-                mletterReceiverDialog.show(getFragmentManager(), "add_charcarter");
+                AddCharacter ReceiverDialog2 = AddCharacter.getInstance();
+                ReceiverDialog2.show(getFragmentManager(), "add_charcarter");
             }
         });
     }
