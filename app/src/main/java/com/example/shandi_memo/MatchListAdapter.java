@@ -1,5 +1,6 @@
 package com.example.shandi_memo;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.ViewHolder>  {
-    ArrayList<MatchingItem> items = new ArrayList<MatchingItem>();
-
+    ArrayList<GetPlanInf> items;
+    Context context;
     OnTapItemSelectedListener listener;
 
     int layoutType = 0;
 
+    public MatchListAdapter(ArrayList<GetPlanInf> items, Context context) {
+        this.items = items;
+        this.context = context;
+    }
 
 
     @NonNull
@@ -31,15 +36,22 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MatchingItem item = items.get(position);
-        holder.setItem(item);
+        holder.matchName.setText(items.get(position).getTitle());
+        holder.matchDate.setText(items.get(position).getMonth() + "월 " + items.get(position).getDay()+"일");
+        holder.matchLocation.setText(items.get(position).getText());
+        context = holder.itemView.getContext();
+
+        holder.itemView.setTag(position);
+
+        //GetPlanInf item = items.get(position);
+        //holder.setItem(item);
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-    public void addItem(MatchingItem item){
+    /*public void addItem(MatchingItem item){
         items.add(item);
     }
 
@@ -49,7 +61,7 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
 
     public MatchingItem getItem(int position){
         return items.get(position);
-    }
+    }*/
 
     public void setOnItemClickListener(OnTapItemSelectedListener listener){
         this.listener = listener;

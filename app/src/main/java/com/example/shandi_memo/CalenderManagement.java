@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -44,6 +45,8 @@ public class CalenderManagement extends Fragment {
 
     String title = "example";
 
+    //YJW
+    ArrayList<GetPlanInf> planList = new ArrayList<GetPlanInf>();
 
     int year, month, day;
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -90,16 +93,28 @@ public class CalenderManagement extends Fragment {
             }
         });
 
-        RootRef.child("Plan").child(title).addValueEventListener(new ValueEventListener() {
+        RootRef.child("Plan").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot snapshot) {
+                //YJW
+                planList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    planName = dataSnapshot.child("title").getValue(String.class);
+                    planMonth = dataSnapshot.child("month").getValue(String.class);
+                    planDay = dataSnapshot.child("day").getValue(String.class);
+                    planText = dataSnapshot.child("text").getValue(String.class);
+                    GetPlanInf getPlanInf= new GetPlanInf(planName, planDay, planMonth, planText);
+                    planList.add(getPlanInf);
 
-                GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
-                planName = gpi.getTitle();
-                planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
-                planText = gpi.getText();
+                    planDate = planMonth +"월 "+ planDay +"일";
+                    /*GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
+                    planName = gpi.getTitle();
+                    planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
+                    planText = gpi.getText();
+                    adapter.addItem(new MatchingItem(planName, planDate, planText));*/
+                }
+                adapter.notifyDataSetChanged();
 
-                adapter.addItem(new MatchingItem(planName, planDate, planText));
             }
 
             @Override
@@ -111,8 +126,7 @@ public class CalenderManagement extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         calendarList.setLayoutManager(layoutManager);
 
-        adapter = new MatchListAdapter();
-
+        adapter = new MatchListAdapter(planList, getContext());
         calendarList.setAdapter(adapter);
 
         //CJW : +버튼 클릭시
@@ -178,7 +192,7 @@ public class CalenderManagement extends Fragment {
                     monthRef.setValue(Integer.toString(month));
                     dayRef.setValue(Integer.toString(day));
                     roomNameRef.setValue(title);
-                    ReadGetPlanInf();
+                    //ReadGetPlanInf();
                     calendarDialog.dismiss();
                 } else
                     Toast.makeText(getContext(), "제목을 입력하세요.", Toast.LENGTH_SHORT).show();
@@ -242,24 +256,36 @@ public class CalenderManagement extends Fragment {
     }
 
     public static String planName, planDate, planText;
+    //YJW
+    public static String planMonth, planDay;
 
-    public void ReadGetPlanInf() {
-        RootRef.child("Plan").child(title).addValueEventListener(new ValueEventListener() {
+    /*public void ReadGetPlanInf() {
+        RootRef.child("Plan").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
-                planName = gpi.getTitle();
-                planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
-                planText = gpi.getText();
+            public void onDataChange(DataSnapshot snapshot) {
+                //YJW
+                planList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    planName = dataSnapshot.child("title").getValue(String.class);
+                    planMonth = dataSnapshot.child("month").getValue(String.class);
+                    planDay = dataSnapshot.child("day").getValue(String.class);
+                    planText = dataSnapshot.child("text").getValue(String.class);
+                    GetPlanInf getPlanInf = new GetPlanInf(planName, planDay, planMonth, planText);
+                    planList.add(getPlanInf);
 
-                adapter.addItem(new MatchingItem(planName, planDate, planText));
-            }
+                    planDate = planMonth + "월 " + planDay + "일";
+                    *//*GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
+                    planName = gpi.getTitle();
+                    planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
+                    planText = gpi.getText();
+                    adapter.addItem(new MatchingItem(planName, planDate, planText));*//*
+                }
+                adapter.notifyDataSetChanged();
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
             }
         });
-    }
 
 }
