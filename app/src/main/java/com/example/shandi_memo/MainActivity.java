@@ -48,21 +48,21 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.tab1:
                         title.setText("캐릭터 관리");
-                        Toast.makeText(getApplicationContext(), "캐릭터선택 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "캐릭터선택 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, characterManagement).commit();
 
                         return true;
                     case R.id.tab2:
                         title.setText("체크리스트");
-                        Toast.makeText(getApplicationContext(), "체크리스트 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "체크리스트 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, contentsManagement).commit();
 
                         return true;
                     case R.id.tab3:
                         title.setText("일정 관리");
-                        Toast.makeText(getApplicationContext(), "일정관리 탭 선택됨", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "일정관리 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.container, calenderManagemnet).commit();
 

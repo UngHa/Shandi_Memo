@@ -286,6 +286,6 @@ public class CalenderManagement extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
             }
-        });
+        });*/
 
 }
