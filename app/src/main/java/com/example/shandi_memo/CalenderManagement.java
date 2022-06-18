@@ -114,6 +114,7 @@ public class CalenderManagement extends Fragment {
                     adapter.addItem(new MatchingItem(planName, planDate, planText));*/
                 }
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -280,12 +281,11 @@ public class CalenderManagement extends Fragment {
                     adapter.addItem(new MatchingItem(planName, planDate, planText));*//*
                 }
                 adapter.notifyDataSetChanged();
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
             }
         });
-    }*/
+
 }
