@@ -2,7 +2,7 @@ package com.example.shandi_memo;
 
 public class GetPlanInf {
 
-    String plan;
+    /*String plan;*/
     String title;
     String day;
     String month;
@@ -10,19 +10,19 @@ public class GetPlanInf {
 
     public GetPlanInf() {
     }
-    public String getPlan() {
+    /*public String getPlan() {
         return plan;
     }
 
-    public void setplan(String plan) {
+    public void setPlan(String plan) {
         this.plan = plan;
-    }
+    }*/
 
     public String getTitle() {
         return title;
     }
 
-    public void settitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -30,7 +30,7 @@ public class GetPlanInf {
         return day;
     }
 
-    public void setday(String day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
@@ -38,7 +38,7 @@ public class GetPlanInf {
         return month;
     }
 
-    public void setmonth(String month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
@@ -46,12 +46,12 @@ public class GetPlanInf {
         return text;
     }
 
-    public void settext(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
-    public GetPlanInf(String plan, String title, String day, String month, String text) {
-        this.plan = plan;
+    public GetPlanInf(/*String plan, */String title, String day, String month, String text) {
+        /*this.plan = plan;*/
         this.title = title;
         this.day = day;
         this.month = month;
