@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <!--일정관리 탭 프래그먼트-->
 
-
+    <!--프로키온의 나침반-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/prokion"
         android:layout_width="match_parent"
@@ -95,6 +95,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--일정 리스트-->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshlayout"
         android:layout_width="match_parent"

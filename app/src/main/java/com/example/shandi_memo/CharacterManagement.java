@@ -22,12 +22,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+//캐릭터 탭 프래그먼트
 public class CharacterManagement extends Fragment {
+    //레이아웃 연결을 위한 변수
     RecyclerView characterListRecycler;
     CharacterListAdapter adapter;
     Context context;
     OnTapItemSelectedListener listener;
+    FloatingActionButton addChar;
+
+    //캐릭터 아이템 ArrayList
     ArrayList<CharacterItem> characterList;
+
+    //데이터베이스 참조를 위한 변수
+    DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference characterRef = RootRef.child("Character");
 
     public void onAttach(Context context){
         super.onAttach(context);
@@ -57,18 +66,21 @@ public class CharacterManagement extends Fragment {
     }
 
     private void initUI(ViewGroup rootView){
-
-        DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference characterRef = RootRef.child("Character");
-
+        //레이아웃 연결
         characterListRecycler = rootView.findViewById(R.id.characterListRecycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         characterListRecycler.setLayoutManager(layoutManager);
+        addChar = rootView.findViewById(R.id.addCharacterButton);
+
+        //캐릭터 리스트
         characterList = new ArrayList<>();
 
         characterRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //데이터베이스로부터 각 변수에 해당하는 값을 가져옴
+
+                //리스트 구성전 초기화
                 characterList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String className = dataSnapshot.child("className").getValue(String.class);
@@ -86,18 +98,20 @@ public class CharacterManagement extends Fragment {
             }
         });
 
+        //어댑터와 리스트 연결
         adapter = new CharacterListAdapter(characterList, getContext());
         characterListRecycler.setAdapter(adapter);
 
-        //매칭리스트 리스너
+        //캐릭터 리스트 클릭 리스너
         adapter.setOnItemClickListener(new OnTapItemSelectedListener() {
 
             @Override
-            public void onItemClick(MatchListAdapter.ViewHolder holder, View view, int position) {
+            public void onItemClick(PlanListAdapter.ViewHolder holder, View view, int position) {
 
             }
 
             @Override
+            //리스트 클릭시 다이얼로그 프래그먼트 출력 및, 해당 리스트의 데이터를 Bundle에 넣어 다이얼로그에 보냄
             public void onItemClick(CharacterListAdapter.ViewHolder holder, View view, int position) {
                Bundle args = new Bundle();
                args.putString("name", characterList.get(position).getName());
@@ -109,7 +123,7 @@ public class CharacterManagement extends Fragment {
             }
         });
 
-        FloatingActionButton addChar = rootView.findViewById(R.id.addCharacterButton);
+        //캐릭터 추가 버튼 클릭 리스너
         addChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

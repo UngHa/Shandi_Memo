@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+    <!--메인 화면-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,12 +17,13 @@
         android:id ="@+id/titlebar"
         android:background="@color/main_color">
 
+        <!--타이틀 부분-->
         <ImageView
             android:id="@+id/Shandi_Icon"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="10sp"
-            android:src="@drawable/home_test"
+            android:src="@drawable/home"
             app:tint="@color/white" />
         <TextView
             android:id="@+id/title"
@@ -34,6 +36,7 @@
 
     </LinearLayout>
 
+    <!--각 탭이 호출될 프레임 레이아웃-->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="0dp"
@@ -47,6 +50,7 @@
 
     </FrameLayout>
 
+    <!--네비게이션 바-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
