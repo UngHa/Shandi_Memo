@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/icon_shandi"
         android:label="샨디의 메모장"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_shandi_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shandi_Memo">
         <activity
