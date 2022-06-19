@@ -31,43 +31,50 @@
             android:id="@+id/empty"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"/>
+            android:src="@drawable/lostark" />
+
         <ImageView
             android:id="@+id/character1"
             android:layout_width="40sp"
-            android:layout_height="40sp"
+            android:layout_height="36dp"
             android:layout_margin="5sp"
-            android:src="@drawable/arcanist"/>
+            android:src="@drawable/arcanist"
+            android:background="@color/black"/>
         <ImageView
             android:id="@+id/character2"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/soulmaster"/>
+            android:src="@drawable/soulmaster"
+            android:background="@color/black"/>
         <ImageView
             android:id="@+id/character3"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/reaper"/>
+            android:src="@drawable/reaper"
+            android:background="@color/black"/>
         <ImageView
             android:id="@+id/character4"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/blade"/>
+            android:src="@drawable/blade"
+            android:background="@color/black"/>
         <ImageView
             android:id="@+id/character5"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/warlord"/>
+            android:src="@drawable/warlord"
+            android:background="@color/black"/>
         <ImageView
             android:id="@+id/character6"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/sorceress"/>
+            android:src="@drawable/sorceress"
+            android:background="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +89,7 @@
             android:id="@+id/oreha_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/alvion"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -157,7 +164,7 @@
             android:id="@+id/kayangel_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/rauriel"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -232,7 +239,7 @@
             android:id="@+id/valtan_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/val"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -307,7 +314,7 @@
             android:id="@+id/vykas_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/via"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -382,7 +389,7 @@
             android:id="@+id/kuku_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/kuku"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -457,7 +464,7 @@
             android:id="@+id/avrel_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/avrel"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -532,7 +539,7 @@
             android:id="@+id/noru_img"
             android:layout_width="60sp"
             android:layout_height="60sp"
-            android:src="@drawable/lion_sample"
+            android:src="@drawable/argos"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
