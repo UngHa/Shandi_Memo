@@ -36,28 +36,33 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+//일정관리 탭 프래그먼트
 public class CalenderManagement extends Fragment {
+    //레이아웃 연결을 위한 변수
     RecyclerView calendarList;
-    MatchListAdapter adapter;
+    PlanListAdapter adapter;
     ImageView chaosGate, fieldBoss, goastShip;
-
-    Dialog calendarDialog;
-
-    String title = "example";
-
-    //YJW
-    ArrayList<GetPlanInf> planList = new ArrayList<GetPlanInf>();
-
-    int year, month, day;
     SwipeRefreshLayout mSwipeRefreshLayout;
 
-    DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference PlanRef = RootRef.child("Plan");
-    DatabaseReference titleRef;
-    DatabaseReference textRef;
-    DatabaseReference monthRef;
-    DatabaseReference dayRef;
-    DatabaseReference roomNameRef;
+    //일정 리스트 호출을 위한 변수
+    String planTitle, planDate, planText, planMonth, planDay;
+
+    //일정의 데이터값을 넣어둘 ArrayList
+    ArrayList<GetPlanInf> planList = new ArrayList<GetPlanInf>();
+
+    //일정 추가 다이얼로그 변수
+    Dialog calendarDialog;
+    int year, month, day;
+
+
+    //파이어베이스 참조를 위한 변수
+    DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference(); //데이터베이스 호출
+    DatabaseReference planRef = RootRef.child("Plan");                         //일정 데이터베이스 참조
+    DatabaseReference planTitleRef;     //각 일정 참조
+    DatabaseReference textRef;          //일정 내용 참조
+    DatabaseReference monthRef;         //날짜의 월 참조
+    DatabaseReference dayRef;           //날짜의 일 참조
+    DatabaseReference titleRef;         //일정 이름 참조
 
     @Nullable
     @Override
@@ -73,9 +78,11 @@ public class CalenderManagement extends Fragment {
 
     private void initUI(ViewGroup rootView) {
 
-
+        //레이아웃 연결
         calendarList = rootView.findViewById(R.id.matchListRecycler);
         mSwipeRefreshLayout = rootView.findViewById(R.id.swiperefreshlayout);
+
+        //SwipeRefreshLayout 설정
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -83,7 +90,7 @@ public class CalenderManagement extends Fragment {
                 final Handler handler = new Handler();
                 ft.detach(CalenderManagement.this).attach(CalenderManagement.this).commit();
 
-                adapter.notifyDataSetChanged(); // 변경되었음을 어답터에 알려준다.
+                adapter.notifyDataSetChanged(); // 변경되었음을 어댑터에 알려준다.
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -93,25 +100,24 @@ public class CalenderManagement extends Fragment {
             }
         });
 
-        RootRef.child("Plan").addValueEventListener(new ValueEventListener() {
+        //일정 데이터베이스에 변화가 생길 경우, 리스트 재호출
+        planRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                //YJW
+                //데이터베이스로부터 각 변수에 해당하는 값을 가져옴
+
+                //리스트 구성 전 초기화
                 planList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    planName = dataSnapshot.child("title").getValue(String.class);
+                    planTitle = dataSnapshot.child("title").getValue(String.class);
                     planMonth = dataSnapshot.child("month").getValue(String.class);
                     planDay = dataSnapshot.child("day").getValue(String.class);
                     planText = dataSnapshot.child("text").getValue(String.class);
-                    GetPlanInf getPlanInf= new GetPlanInf(planName, planDay, planMonth, planText);
+                    GetPlanInf getPlanInf= new GetPlanInf(planTitle, planDay, planMonth, planText);
                     planList.add(getPlanInf);
 
+                    //날짜를 ~월 ~일 형식으로 재구성
                     planDate = planMonth +"월 "+ planDay +"일";
-                    /*GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
-                    planName = gpi.getTitle();
-                    planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
-                    planText = gpi.getText();
-                    adapter.addItem(new MatchingItem(planName, planDate, planText));*/
                 }
                 adapter.notifyDataSetChanged();
 
@@ -126,7 +132,8 @@ public class CalenderManagement extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         calendarList.setLayoutManager(layoutManager);
 
-        adapter = new MatchListAdapter(planList, getContext());
+        //어댑터와 리스트 연결
+        adapter = new PlanListAdapter(planList, getContext());
         calendarList.setAdapter(adapter);
 
         //CJW : +버튼 클릭시
@@ -147,6 +154,7 @@ public class CalenderManagement extends Fragment {
 
     }
 
+    //일정 추가 다이얼로그 출력
     public void calendarDialogShow() {
 
         EditText createRoomName = (EditText) calendarDialog.findViewById(R.id.createRoomName);
@@ -165,6 +173,7 @@ public class CalenderManagement extends Fragment {
             }
         });
 
+        //취소버튼 클릭 이벤트
         Button cancelAddPlan = calendarDialog.findViewById(R.id.cancelAddPlan);
         cancelAddPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,27 +181,32 @@ public class CalenderManagement extends Fragment {
                 calendarDialog.dismiss();
             }
         });
-        // 적용
+
+        // 적용버튼 클릭 이벤트
         Button submitAddPlan = calendarDialog.findViewById(R.id.submitAddPlan);
         submitAddPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                title = createRoomName.getText().toString();
+                //일정 이름값을 가져옴
+                String title = createRoomName.getText().toString();
 
+                //일정 이름이 빈칸일 경우 실행되지 않고 토스트메시지 출력
                 if (!title.trim().isEmpty()) {
 
-                    titleRef = PlanRef.child(title);
-                    textRef = titleRef.child("text");
-                    monthRef = titleRef.child("month");
-                    dayRef = titleRef.child("day");
-                    roomNameRef = titleRef.child("title");
+                    //사용자가 입력한 title값으로 데이터베이스 생성, 데이터베이스는 일정내용 text, 날짜(월) month, 날짜(일) day, 일정 이름 title 값을 자식으로 둔다.
+                    planTitleRef = planRef.child(title);
+                    textRef = planTitleRef.child("text");
+                    monthRef = planTitleRef.child("month");
+                    dayRef = planTitleRef.child("day");
+                    titleRef = planTitleRef.child("title");
 
-                    titleRef.setValue(title);
+                    //데이터베이스 추가
+                    planTitleRef.setValue(title);
                     textRef.setValue(textField.getText().toString());
                     monthRef.setValue(Integer.toString(month));
                     dayRef.setValue(Integer.toString(day));
-                    roomNameRef.setValue(title);
-                    //ReadGetPlanInf();
+                    titleRef.setValue(title);
+
                     calendarDialog.dismiss();
                 } else
                     Toast.makeText(getContext(), "제목을 입력하세요.", Toast.LENGTH_SHORT).show();
@@ -200,6 +214,7 @@ public class CalenderManagement extends Fragment {
         });
     }
 
+    //화면 상단 프로키온의 나침반을 출력
     public void prokionCompass(ViewGroup rootView) {
         chaosGate = rootView.findViewById(R.id.chaosGate);
         fieldBoss = rootView.findViewById(R.id.fieldBoss);
@@ -254,38 +269,4 @@ public class CalenderManagement extends Fragment {
 
         return week;
     }
-
-    public static String planName, planDate, planText;
-    //YJW
-    public static String planMonth, planDay;
-
-    /*public void ReadGetPlanInf() {
-        RootRef.child("Plan").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                //YJW
-                planList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    planName = dataSnapshot.child("title").getValue(String.class);
-                    planMonth = dataSnapshot.child("month").getValue(String.class);
-                    planDay = dataSnapshot.child("day").getValue(String.class);
-                    planText = dataSnapshot.child("text").getValue(String.class);
-                    GetPlanInf getPlanInf = new GetPlanInf(planName, planDay, planMonth, planText);
-                    planList.add(getPlanInf);
-
-                    planDate = planMonth + "월 " + planDay + "일";
-                    *//*GetPlanInf gpi = dataSnapshot.getValue(GetPlanInf.class);
-                    planName = gpi.getTitle();
-                    planDate = gpi.getMonth() +"월"+ gpi.getDay()+"일";
-                    planText = gpi.getText();
-                    adapter.addItem(new MatchingItem(planName, planDate, planText));*//*
-                }
-                adapter.notifyDataSetChanged();
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });*/
-
 }

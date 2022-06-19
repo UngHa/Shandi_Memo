@@ -1,5 +1,6 @@
 package com.example.shandi_memo;
 
+//캐릭터 리사이클러뷰에 사용될 CharacterItem
 public class CharacterItem {
     String name;
     String className;
