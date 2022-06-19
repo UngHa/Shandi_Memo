@@ -21,11 +21,15 @@ import androidx.fragment.app.DialogFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//캐릭터 정보 다이얼로그 프래그먼트
 public class CharacterInfo extends DialogFragment {
+    //캐릭터를 수정, 삭제하기위한 데이터베이스 참조 변수
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference characterRef = RootRef.child("Character");
     DatabaseReference editedCharRef, editedNameRef, editedClassNameRef, editedLevelRef;
     DatabaseReference charRef, levelRef;
+
+    //아이템으로부터 값을 가져올 변수
     String name, className, level;
 
     public CharacterInfo(){}
@@ -37,6 +41,8 @@ public class CharacterInfo extends DialogFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.character_info, container, false);
+
+        //레이아웃 연결
         ImageButton nameEditBtn = v.findViewById(R.id.nameEditBtn);
         ImageButton levelEditBtn = v.findViewById(R.id.levelEditBtn);
         ImageButton deleteBtn = v.findViewById(R.id.deleteBtn);
@@ -47,11 +53,13 @@ public class CharacterInfo extends DialogFragment {
         EditText levelEdit = (EditText)v.findViewById(R.id.levelEdit);
         ImageView profileImg = v.findViewById(R.id.profileImg);
 
+        //선택한 캐릭터 리스트로부터 데이터를 가져옴
         Bundle args = getArguments();
         name = args.getString("name");
         className = args.getString("className");
         level = args.getString("level");
 
+        //가져온 데이터의 직업이름에 따라 이미지 변경
         switch (className) {
             case "디스트로이어":
                 profileImg.setImageResource(R.drawable.destroyer);
@@ -121,22 +129,29 @@ public class CharacterInfo extends DialogFragment {
                 break;
         }
         profileImg.setColorFilter(R.color.black);
+
+        //데이터를 받아옴
         nameEdit.setText(name);
         classNameText.setText(className);
         levelEdit.setText(level);
+
+        //받아온 데이터로 캐릭터 참조 변수 설정
         charRef = characterRef.child(name);
 
+        //삭제 버튼 클릭 리스너
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //삭제시 재확인 다이얼로그 출력
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setNegativeButton("취소", null);
                 builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        //캐릭터 삭제및 토스트메시지 출력
                         charRef.setValue(null);
                         Toast.makeText(getContext(), "삭제되었습니다.", Toast.LENGTH_SHORT).show();
+
                         dismiss(); // 다이얼로그 닫기
                     }
                 });
@@ -154,9 +169,11 @@ public class CharacterInfo extends DialogFragment {
             }
         });
 
+        //닉네임 수정 토글 버튼 클릭 리스너
         nameEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //버튼 클릭시 아이콘에 색이 생기고 닉네임 수정칸이 활성화, 재 클릭시 비활성화
                 if (nameEdit.isEnabled()) {
                     nameEdit.setEnabled(false);
                     nameEditBtn.setBackgroundResource(R.drawable.edit);
@@ -164,13 +181,14 @@ public class CharacterInfo extends DialogFragment {
                     nameEdit.setEnabled(true);
                     nameEditBtn.setBackgroundResource(R.drawable.edit_selected);
                 }
-
             }
         });
 
+        //아이템레벨 수정 토글 버튼 클릭 리스너
         levelEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //버튼 클릭시 아이콘에 색이 생기고 닉네임 수정칸이 활성화, 재 클릭시 비활성화
                 if (levelEdit.isEnabled()) {
                     levelEdit.setEnabled(false);
                     levelEditBtn.setBackgroundResource(R.drawable.edit);
@@ -182,7 +200,7 @@ public class CharacterInfo extends DialogFragment {
             }
         });
 
-        // 취소
+        // 취소 버튼 클릭 리스너
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -190,14 +208,19 @@ public class CharacterInfo extends DialogFragment {
             }
         });
 
-        // 적용
+        // 저장(데이터 수정) 버튼 클릭 리스너
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //각 변수에 입력값을 가져옴
                 String editedName = nameEdit.getText().toString();
                 String editedLevel = levelEdit.getText().toString();
                 String className = classNameText.getText().toString();
+
+                //입력칸에 빈칸이 있을경우 실행되지않고 토스트메시지출력
                 if (!editedName.trim().isEmpty() && !editedLevel.trim().isEmpty()) {
+                    //이름은 변경되지않고 아이템레벨만 변경될경우 기존 데이터수정
+                    //이름이 변경될경우 기존 데이터 삭제후 새 데이터 추가
                     if (name.equals(editedName)) {
                         levelRef = charRef.child("level");
                         levelRef.setValue(editedLevel);

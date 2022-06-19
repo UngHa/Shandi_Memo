@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100sp"
     android:layout_marginTop="8sp"
@@ -11,6 +10,7 @@
     app:cardBackgroundColor="#ffffff"
     app:cardCornerRadius="10sp"
     app:cardElevation="5sp">
+    <!--캐릭터 리스트 아이템-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/characterListlayout"
@@ -19,8 +19,9 @@
         android:orientation="horizontal"
         android:visibility="visible">
 
+        <!--프로필 이미지-->
         <ImageView
-            android:id="@+id/profileIcon"
+            android:id="@+id/profileImg"
             android:layout_width="80sp"
             android:layout_height="80sp"
             android:layout_margin="10sp"
@@ -29,34 +30,37 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <!--캐릭터 닉네임-->
         <TextView
             android:id="@+id/charName"
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/profileIcon"
+            app:layout_constraintLeft_toRightOf="@id/profileImg"
             android:text="@string/null_text"
             android:layout_margin="10sp"
             android:textSize="24sp" />
 
+        <!--캐릭터 직업 이름-->
         <TextView
             android:id="@+id/className"
             android:layout_width="wrap_content"
             android:layout_height="20sp"
             app:layout_constraintTop_toBottomOf="@id/charName"
-            app:layout_constraintLeft_toRightOf="@id/profileIcon"
+            app:layout_constraintLeft_toRightOf="@id/profileImg"
             android:text="@string/null_text"
             android:layout_marginStart="10sp"
             android:layout_marginTop="10sp"
             android:textSize="15sp" />
 
+        <!--캐릭터 아이템 레벨-->
         <TextView
             android:id="@+id/levelTextView"
             android:layout_width="wrap_content"
             android:layout_height="20sp"
             android:text="아이템 레벨"
             app:layout_constraintTop_toBottomOf="@id/className"
-            app:layout_constraintLeft_toRightOf="@id/profileIcon"
+            app:layout_constraintLeft_toRightOf="@id/profileImg"
             android:layout_marginStart="10sp"
             android:textSize="15sp"
         />

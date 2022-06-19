@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+//체크리스트 탭 프래그먼트
 public class ContentsManagement extends Fragment {
     RecyclerView messageList;
-    MatchListAdapter adapter;
-
+    PlanListAdapter adapter;
 
     Context context;
     OnTapItemSelectedListener listener;

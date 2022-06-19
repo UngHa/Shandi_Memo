@@ -12,14 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.ViewHolder>  {
+//일정 리사이클어뷰에 사용될 일정 리스트 어댑터
+public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.ViewHolder>  {
     ArrayList<GetPlanInf> items;
     Context context;
     OnTapItemSelectedListener listener;
 
-    int layoutType = 0;
-
-    public MatchListAdapter(ArrayList<GetPlanInf> items, Context context) {
+    public PlanListAdapter(ArrayList<GetPlanInf> items, Context context) {
         this.items = items;
         this.context = context;
     }
@@ -36,32 +35,18 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.matchName.setText(items.get(position).getTitle());
-        holder.matchDate.setText(items.get(position).getMonth() + "월 " + items.get(position).getDay()+"일");
-        holder.matchLocation.setText(items.get(position).getText());
+        holder.planName.setText(items.get(position).getTitle());
+        holder.planDate.setText(items.get(position).getMonth() + "월 " + items.get(position).getDay()+"일");
+        holder.planText.setText(items.get(position).getText());
         context = holder.itemView.getContext();
 
         holder.itemView.setTag(position);
-
-        //GetPlanInf item = items.get(position);
-        //holder.setItem(item);
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-    /*public void addItem(MatchingItem item){
-        items.add(item);
-    }
-
-    public void setItems(ArrayList<MatchingItem> items){
-        this.items = items;
-    }
-
-    public MatchingItem getItem(int position){
-        return items.get(position);
-    }*/
 
     public void setOnItemClickListener(OnTapItemSelectedListener listener){
         this.listener = listener;
@@ -75,17 +60,17 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView profileImageView;
-        TextView matchName;
-        TextView matchDate;
-        TextView matchLocation;
+        TextView planName;
+        TextView planDate;
+        TextView planText;
 
         public ViewHolder(View itemView, final OnTapItemSelectedListener listener){
             super(itemView);
 
             profileImageView = itemView.findViewById(R.id.profileImageView);
-            matchName = itemView.findViewById(R.id.matchName);
-            matchDate = itemView.findViewById(R.id.matchDate);
-            matchLocation = itemView.findViewById(R.id.matchLocation);
+            planName = itemView.findViewById(R.id.planName);
+            planDate = itemView.findViewById(R.id.planDate);
+            planText = itemView.findViewById(R.id.planText);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,14 +82,6 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.View
                     }
                 }
             });
-
-        }
-
-        public void setItem(MatchingItem item){
-            profileImageView.setImageResource(R.drawable.ic_launcher_foreground);
-            matchName.setText(item.getPlanName());
-            matchDate.setText(item.getPlanDate());
-            matchLocation.setText(item.getPlanText());
         }
     }
 }

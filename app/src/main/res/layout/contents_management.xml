@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<!--,-->
+    <!--체크리스트 탭 프래그먼트(미완성)-->
+
     <TextView
         android:id="@+id/contentsCheckTextView"
         android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
             android:layout_height="60sp"
             android:src="@drawable/lostark" />
 
+
         <ImageView
             android:id="@+id/character1"
             android:layout_width="40sp"
@@ -40,6 +42,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/arcanist"
             android:background="@color/black"/>
+
         <ImageView
             android:id="@+id/character2"
             android:layout_width="40sp"
@@ -47,6 +50,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/soulmaster"
             android:background="@color/black"/>
+      
         <ImageView
             android:id="@+id/character3"
             android:layout_width="40sp"
@@ -54,6 +58,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/reaper"
             android:background="@color/black"/>
+      
         <ImageView
             android:id="@+id/character4"
             android:layout_width="40sp"
@@ -61,6 +66,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/blade"
             android:background="@color/black"/>
+      
         <ImageView
             android:id="@+id/character5"
             android:layout_width="40sp"
@@ -68,6 +74,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/warlord"
             android:background="@color/black"/>
+      
         <ImageView
             android:id="@+id/character6"
             android:layout_width="40sp"
@@ -75,6 +82,7 @@
             android:layout_margin="5sp"
             android:src="@drawable/sorceress"
             android:background="@color/black"/>
+      
     </LinearLayout>
 
     <LinearLayout
