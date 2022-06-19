@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<!--,-->
+    <!--체크리스트 탭 프래그먼트(미완성)-->
+
     <TextView
         android:id="@+id/contentsCheckTextView"
         android:layout_width="wrap_content"
@@ -30,43 +31,49 @@
         <ImageView
             android:id="@+id/empty"
             android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:src="@drawable/lion_sample"/>
+            android:layout_height="60sp" />
+
         <ImageView
             android:id="@+id/character1"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
-            android:src="@drawable/arcanist"/>
+            android:src="@drawable/arcanist"
+            app:tint="@color/black" />
         <ImageView
             android:id="@+id/character2"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
+            app:tint="@color/black"
             android:src="@drawable/soulmaster"/>
         <ImageView
             android:id="@+id/character3"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
+            app:tint="@color/black"
             android:src="@drawable/reaper"/>
         <ImageView
             android:id="@+id/character4"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
+            app:tint="@color/black"
             android:src="@drawable/blade"/>
         <ImageView
             android:id="@+id/character5"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
+            app:tint="@color/black"
             android:src="@drawable/warlord"/>
         <ImageView
             android:id="@+id/character6"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_margin="5sp"
+            app:tint="@color/black"
             android:src="@drawable/sorceress"/>
     </LinearLayout>
 
